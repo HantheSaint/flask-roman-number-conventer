@@ -21,13 +21,11 @@ Parameters:
 
 Resources:
 
-
-
   WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties: 
       GroupDescription: Enable HTTP for Flask Web Server and SSH port to secure reach to my EC2
-      GroupName: osvaldo-roman-number-converter
+      GroupName: yagiz-roman-number-converter
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 80
@@ -60,7 +58,7 @@ Resources:
         dnf install python3-pip -y
         pip3 install flask
         dnf install git -y
-        FOLDER="https://raw.githubusercontent.com/HantheSaint/roman-number-conventer/master"
+        FOLDER="https://raw.githubusercontent.com/HantheSaint/roman-number-converter/main"
         cd /home/ec2-user
         wget -P templates ${FOLDER}/templates/index.html
         wget -P templates ${FOLDER}/templates/result.html
@@ -74,7 +72,6 @@ Outputs:
       - http://${PIA}
       - PIA: !GetAtt WebServerHost.PublicDnsName
     Description: Roman Numerals Converter Application URL
-  
 
 
 
